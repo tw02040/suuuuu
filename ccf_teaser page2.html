@@ -80,6 +80,28 @@
 		}
       }
 		</style>
+		<script type="text/javascript">
+
+			function change()
+        {
+             var d = new Date() ;
+            
+             var h = d.getSeconds();
+             
+             
+            
+              if (h%2==0) {
+                document.body.style.backgroundColor="#00215e";
+              }
+              else {
+                document.body.style.backgroundColor="#9dc7cc";
+              }
+            setTimeout("change()", 5);
+        }
+       window.onload=function(){
+           change();
+       }
+		</script>
 	</head>
 	<body>
 		<div class="all">

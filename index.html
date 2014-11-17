@@ -17,11 +17,11 @@
 					width: 100%;
 					display: none;
 				}
-				.head {
+				#head {
 					margin: auto;
 					width: 35%;
 				}
-				.head img {
+				#head img {
 					width: 100%;
 				}
 				nav {
@@ -68,12 +68,12 @@
 			.movie_name img {
 				width: 100%;
 			}
-			.head {
+			#head {
 				margin: auto;
 				width: 15%;
 				top: 60px;
 			}
-			.head img {
+			#head img {
 				width: 100%;
 			}
 			.movie_name img{
@@ -116,9 +116,29 @@
 			}
 		}
 		</style>
+
+		<script type="text/javascript">   	 
+        var distance=3;
+    var tog=1;
+    window.onload= function() {
+      window.setInterval(function() {
+        var char= document.getElementById('head');
+        if (parseInt(char.style.left || '0') < 150) {
+   char.style.left=parseInt(char.style.left || '0') + distance + 'px'; }
+      }, 100);
+   var d = new Date();
+    	  var h = d.getHours();
+     	 if (h<12){
+     	   alert("달콤한 하루 보내세요");
+    	  }
+    	  else{
+   	     alert("이쯤 출출할 땐 초콜릿 하나!");
+	      }
+    }
+		</script>
 	</head>
 	<body>
-		<div class="head">
+		<div id="head">
 			<img src="wonka.png" alt="윌리웡카 얼굴">
 		</div>
 		<div class="movie_name">

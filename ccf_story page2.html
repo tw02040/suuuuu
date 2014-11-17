@@ -93,6 +93,27 @@
 			}
       }
 		</style>
+		<script type="text/javascript">
+		 window.onload = function(){
+      var d = new Date();
+      var h = d.getHours();
+      var len = document.getElementsByTagName("h3").length;
+      if (h<11){
+        alert("좋은 아침입니다. 스토리 소개 페이지에용");
+      }
+
+      else{
+        alert("식사는 하셨나요? 스토리 소개 페이지지롱~");
+
+		document.body.style.backgroundColor="#46026d";
+		for (var i=0;i<len;i++){
+		document.getElementsByTagName("h3")[i].style.color="white";
+      }
+    }
+}
+		
+
+		</script>
 	</head>
 	<body>
 		<div class="all">

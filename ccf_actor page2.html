@@ -59,6 +59,26 @@
 			}
       }
 		</style>
+		<script type="text/javascript">
+		window.onload = function(){
+      	var d = new Date();
+      	var h = d.getHours();
+      	var len = document.getElementsByTagName("h3").length;
+      	if (h<11){
+        alert("굳모닝!. 감독 및 배우 소개에요!");
+      }
+
+      else{
+        alert("굳오후?굳밤? 감독과 배우소개지롱~");
+
+		document.body.style.backgroundColor="#837c15";
+		for (var i=0;i<len;i++){
+		document.getElementsByTagName("h3")[i].style.color="white";
+		
+      }
+    }
+}
+		</script>
 	</head>
 	<body>
 		<div>
