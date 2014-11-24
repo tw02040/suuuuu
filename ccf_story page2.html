@@ -69,61 +69,70 @@
 				top: 1750px;
 				right: 0;
 			}
-		@media screen and (max-width:720px) {
-       	body{
-       		background-color: #ffb8b8;
-       		font-size: 15px;
-       	}
-       	.poor, .gum, .squirrel, .chocolate, .tv {
-       		width: 80%
-       	}
-       	.poor img, .gum img, .squirrel img, .chocolate img, .tv img {
-       		width: 100%
-       	}
-       	div {
-       		position: relative;
-       		margin: auto;
-       	}
-       }
-       @media screen and (min-width:721px){
-		
-      	nav img {
-				width: 5%;
-				margin: 0 30px 0 0;
-			}
-      }
+			@media screen and (max-width:720px) {
+	       		body{
+	       			background-color: #ffb8b8;
+	       			font-size: 15px;
+	       		}
+	       		.poor, .gum, .squirrel, .chocolate, .tv {
+	       			width: 80%
+	       		}
+	       		.poor img, .gum img, .squirrel img, .chocolate img, .tv img {
+	       			width: 100%
+	       		}
+	       		div {
+	       			position: relative;
+	       			margin: auto;
+	       		}
+    		}
+    		@media screen and (min-width:721px){
+      			nav img {
+					width: 5%;
+					margin: 0 30px 0 0;
+				}
+    		}
 		</style>
 		<script type="text/javascript">
-		 window.onload = function(){
-      var d = new Date();
-      var h = d.getHours();
-      var len = document.getElementsByTagName("h3").length;
-      if (h<11){
-        alert("좋은 아침입니다. 스토리 소개 페이지에용");
-      }
-
-      else{
-        alert("식사는 하셨나요? 스토리 소개 페이지지롱~");
-
-		document.body.style.backgroundColor="#46026d";
-		for (var i=0;i<len;i++){
-		document.getElementsByTagName("h3")[i].style.color="white";
-      }
-    }
-}
-		
-
+			window.onload = function(){
+    			var d = new Date();
+    			var h = d.getHours();
+    			var len = document.getElementsByTagName("h3").length;
+    			if (h<11){
+    				alert("좋은 아침입니다. 스토리 소개 페이지에용");
+    			}
+    			else{
+    				alert("식사는 하셨나요? 스토리 소개 페이지지롱~");
+					document.body.style.backgroundColor="#46026d";
+					for (var i=0;i<len;i++){
+						document.getElementsByTagName("h3")[i].style.color="white";
+    				}
+    			}
+			}
+			var mouseX = 0;
+    		var mouseY = 0; 
+			function getMousePosition(e){
+        		var eObj = window.event? window.event : e;
+        		mouseX = eObj.clientX;
+        		mouseY = eObj.clientY + document.body.scrollTop;
+    		}
+    		function moveImg(){
+        		var m_x = parseInt(document.getElementById('glass').style.left.replace('px', ''));
+        		var m_y = parseInt(document.getElementById('glass').style.top.replace('px', ''));
+        		document.getElementById('glass').style.left = Math.round(m_x + ((mouseX - m_x) / 10))+'px';
+        		document.getElementById('glass').style.top = Math.round(m_y + ((mouseY - m_y) / 10))+'px';
+    		}
+    		document.onmousemove = getMousePosition;
+    		setInterval("moveImg()", 1);
 		</script>
 	</head>
 	<body>
 		<div class="all">
 			<nav>
 				<a href="index.html"><img src="home.png" alt="홈"></a>
-				<a href="ccf_actor page2.html"><img src="menu_01-1.png" alt="메뉴01"></a>
-				<a href="ccf_story page2.html"><img src="menu_02-1.png" alt="메뉴02"></a>
-				<a href="ccf_teaser page2.html"><img src="menu_03-1.png" alt="메뉴03"></a>
+				<a href="ccf_actor page2.html"><img src="menu_01-1_2.png" alt="메뉴01"></a>
+				<a href="ccf_story page2.html"><img src="menu_02-1_2.png" alt="메뉴02"></a>
+				<a href="ccf_teaser page2.html"><img src="menu_03-1_2.png" alt="메뉴03"></a>
 			</nav>
-			
 			<div class="poor">
 				<img src="gananhan.png" alt="gananhan">
 				<h3>다 쓰러져 갈듯한 작은 오두막집에 살고 있는 찰리라는 소년이 있다.<br/>
@@ -133,27 +142,24 @@
 			</div>
 			<div class="gum">
 				<img src="room01.png" alt="gumroom"><br/>
-				
 				<h3>초콜릿 강과 그 주변 수풀, 나무 등은 모두 캔디와 초콜릿으로 만들어져 있다.</h3>
 			</div>
 			<div class="squirrel">
 				<img src="room02.png" alt="squirrelroom"><br/>
-			
 				<h3>윌리 웡카의 개발 중에 있는 재미있는 발명 디저트들을 만날 수 있다.</h3>
 			</div>
 			<div class="chocolate">
 				<img src="room03.png" alt="chocolateroom"><br/>
-		
 				<h3>초콜릿에 첨가되는 호두를 다람쥐들이 직접 껍질을 벗겨내는 방이다.</h3>
 			</div>
 			<div class="tv">
 				<img src="room04.png" alt="tvroom"><br/>
-				
 				<h3>윌리 웡카가 아직 실험중인 TV방이다. 화면화 현실이 쌍방향으로 소통 가능하다.</h3>
 			</div>
 		</div>
 		<div class="candy">
 			<img src="menu2bg.png" alt="candy">
 		</div>
+		<img id="glass" style="position:absolute; left:0; top:0;" src="mouse_image.png">
 	</body>
 </html>

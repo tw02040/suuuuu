@@ -114,27 +114,41 @@
 				opacity: 0;
 				transition: opacity 0.5s;
 			}
-		}
+		}     
 		</style>
-
 		<script type="text/javascript">   	 
-        var distance=3;
-    var tog=1;
-    window.onload= function() {
-      window.setInterval(function() {
-        var char= document.getElementById('head');
-        if (parseInt(char.style.left || '0') < 150) {
-   char.style.left=parseInt(char.style.left || '0') + distance + 'px'; }
-      }, 100);
-   var d = new Date();
-    	  var h = d.getHours();
-     	 if (h<12){
-     	   alert("달콤한 하루 보내세요");
-    	  }
-    	  else{
-   	     alert("이쯤 출출할 땐 초콜릿 하나!");
-	      }
-    }
+        	var distance=3;
+       		var tog=1;
+    		window.onload= function() {
+      			window.setInterval(function() {
+        			var char= document.getElementById('head');
+        			if (parseInt(char.style.width || '0') < 250) {
+   						char.style.width=parseInt(char.style.width || '0') + distance + 'px'; }
+    				}, 10);
+  					var d = new Date();
+    	  			var h = d.getHours();
+     	 			if (h<12){
+     					alert("달콤한 하루 보내세요");
+    	  			}
+    	  			else{
+   	     				alert("이쯤 출출할 땐 초콜릿 하나!");
+	    			}
+			}
+    			var mouseX = 0;
+    			var mouseY = 0;
+    			function getMousePosition(e){
+          			var eObj = window.event? window.event : e;
+        			mouseX = eObj.clientX;
+        			mouseY = eObj.clientY + document.body.scrollTop;
+    			}
+    			function moveImg(){
+        			var m_x = parseInt(document.getElementById('glass').style.left.replace('px', ''));
+        			var m_y = parseInt(document.getElementById('glass').style.top.replace('px', ''));
+					document.getElementById('glass').style.left = Math.round(m_x + ((mouseX - m_x) / 10))+'px';
+        			document.getElementById('glass').style.top = Math.round(m_y + ((mouseY - m_y) / 10))+'px';
+    			}
+    			document.onmousemove = getMousePosition;
+    			setInterval("moveImg()", 1);
 		</script>
 	</head>
 	<body>
@@ -164,5 +178,6 @@
 			<img src="menu_03.png" alt="티저 페이지 메뉴" class="teaser">
 			</a>
 		</nav>
+		<img id="glass" style="position:absolute; left:0; top:0;" src="mouse_image.png">
 	</body>
 </html>
