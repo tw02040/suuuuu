@@ -72,6 +72,41 @@
 				margin: 0 30px 0 0;
 				}
     		}
+    		@media print {
+	        	.candy {
+            		display:none;
+        		}
+        		#glass {
+        			display:none;
+        		}
+        		h3 {
+              		font-size : 15px;
+        		}
+        		#menu_home, #menu_2, #menu_3 {
+        			display:none;
+        		}
+        		#ac1{
+					top:150px;
+				}
+				#ac2{
+					top:400px;
+				}
+				#ac3{
+					top:650px;
+				}
+				#ac4{
+					top:900px;
+				}
+				#ac5{
+					top:1250px;
+				}
+				#ac6{
+					top:1500px;
+				}
+				#ac7{
+					top:1750px;
+				}
+    		}
 		</style>
 		<script type="text/javascript">
 			window.onload = function(){
@@ -113,10 +148,10 @@
 	<body>
 		<div>
 			<nav>
-				<a href="index.html"><img src="home.png" alt="홈"></a>
-				<a href="ccf_actor page2.html"><img src="menu_01-1_2.png" alt="메뉴01"></a>
-				<a href="ccf_story page2.html"><img src="menu_02-1_2.png" alt="메뉴02"></a>
-				<a href="ccf_teaser page2.html"><img src="menu_03-1_2.png" alt="메뉴03"></a>
+				<a href="index.html"><img id="menu_home" src="home.png" alt="홈"></a>
+				<a href="ccf_actor page2.html"><img id="menu_1"src="menu_01-1_2.png" alt="메뉴01"></a>
+				<a href="ccf_story page2.html"><img id="menu_2"src="menu_02-1_2.png" alt="메뉴02"></a>
+				<a href="ccf_teaser page2.html"><img id="menu_3"src="menu_03-1_2.png" alt="메뉴03"></a>
 			</nav>
 			<div class="profile" id="ac1">
 				<img src="director.png" alt="director">
@@ -159,7 +194,6 @@
 				<h3>[마이크 티비]조던 프라이(Jordan Fry)</h3>
 				<p>폭력적인 게임을 즐겨하는 냉소적인 꼬마아이다.</p>
 				<p>다소 성격이 거칠고 공격적이다.</p>
-
 			</div>
 			<div class="candy">
 				<img src="menu1bg.png" alt="candy">

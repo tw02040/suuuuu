@@ -5,15 +5,15 @@
 		<style type="text/css">
 			@media screen and (max-width:720px){
 				body {
-				position: relative;
-				background-color: #a45348;
-				margin: 60px 10px;
+					position: relative;
+					background-color: #a45348;
+					margin: 60px 10px;
 				}
-				.movie_name {
+				.movie_name,.movie_name2 {
 					margin: auto;
 					width: 90%;
 				}
-				.movie_name img {
+				.movie_name img ,.movie_name2 img{
 					width: 100%;
 					display: none;
 				}
@@ -49,72 +49,106 @@
 				.actor, .story, .teaser {
 					display: none;
 				}
+				.movie_name2 img{
+					display: none;
+				}
 			}
 			@media screen and (min-width: 721px){
-			body {
-				position: relative;
-				background-color: #3a0700;
-				margin: 0;
-				padding: 0;
+				body {
+					position: relative;
+					background-color: #3a0700;
+					margin: 0;
+					padding: 0;
 				}
-			body div {
-				position: relative;
-			}
-			.movie_name {
-				margin: auto;
-				width: 70%;
-				top: -30px;
-			}
-			.movie_name img {
-				width: 100%;
-			}
-			#head {
-				margin: auto;
-				width: 15%;
-				top: 60px;
-			}
-			#head img {
-				width: 100%;
-			}
-			.movie_name img{
-				opacity: 0.2;
-				transition: opacity 1s;
-			}
-			.movie_name img:hover{
-				opacity: 1;
-			}
-			nav {
-				position: relative;
-				margin: auto;
-				width: 80%;
-			}
-			nav img{
-				width: 10%;
-			}
-			.actor_change, .actor {
-				position: absolute;
-				left: 0%;
-				top: 20px;
-				right: 0px;
-			}
-			.story_change, .story {
-				position: absolute;
-				left: 45%;
-				top: 20px;
-			}
-			.teaser, .teaser_change {
-				position: absolute;
-				left: 85%;
-				top: 20px;
-			}
-			a {
-				text-decoration: none;
-			}
-			.actor:hover, .story:hover, .teaser:hover {
-				opacity: 0;
-				transition: opacity 0.5s;
-			}
-		}     
+				body div {
+					position: relative;
+				}
+				.movie_name,.movie_name2 {
+					margin: auto;
+					width: 70%;
+					top: -30px;
+				}
+				.movie_name img,.movie_name2 img {
+					width: 100%;
+				}
+				#head {
+					margin: auto;
+					width: 15%;
+					top: 60px;
+				}
+				#head img {
+					width: 100%;
+				}
+				.movie_name img,.movie_name2 img{
+					opacity: 0.2;
+					transition: opacity 1s;
+				}
+				.movie_name img:hover,.movie_name2 img{
+					opacity: 1;
+				}
+				nav {
+					position: relative;
+					margin: auto;
+					width: 80%;
+				}
+				nav img{
+					width: 10%;
+				}
+				.actor_change, .actor {
+					position: absolute;
+					left: 0%;
+					top: 20px;
+					right: 0px;
+				}
+				.story_change, .story {
+					position: absolute;
+					left: 45%;
+					top: 20px;
+				}
+				.teaser, .teaser_change {
+					position: absolute;
+					left: 85%;
+					top: 20px;
+				}
+				a {
+					text-decoration: none;
+				}
+				.actor:hover, .story:hover, .teaser:hover {
+					opacity: 0;
+					transition: opacity 0.5s;
+				}
+				.movie_name2 img{
+					display: none;
+				}
+			}     
+			@media print {
+	        	#glass {
+	                 display:none;
+	            }
+	            #head{
+	             	margin: auto;
+	             	margin-top: 100px;
+	            }
+	            .actor, .story, .teaser{
+	             	display:none;
+	            }
+	            .actor_change, .story_change, .teaser_change{
+	             	display:inline;
+	             	margin: 70px;
+	             	margin-top: 200px;
+	            }
+	            a{
+	             	text-decoration: none;
+	            }
+	            .movie_name{
+	             	display:none;
+	            }
+	            .movie_name2{
+					display:block;
+					margin: auto;
+					margin-top: 200px;
+				}
+	        }
 		</style>
 		<script type="text/javascript">   	 
         	var distance=3;
@@ -125,30 +159,30 @@
         			if (parseInt(char.style.width || '0') < 250) {
    						char.style.width=parseInt(char.style.width || '0') + distance + 'px'; }
     				}, 10);
-  					var d = new Date();
-    	  			var h = d.getHours();
-     	 			if (h<12){
-     					alert("달콤한 하루 보내세요");
-    	  			}
-    	  			else{
-   	     				alert("이쯤 출출할 땐 초콜릿 하나!");
-	    			}
+  				var d = new Date();
+    	  		var h = d.getHours();
+     	 		if (h<12){
+     				alert("달콤한 하루 보내세요");
+    	  		}
+    	  		else{
+   	     			alert("이쯤 출출할 땐 초콜릿 하나!");
+	    		}
 			}
-    			var mouseX = 0;
-    			var mouseY = 0;
-    			function getMousePosition(e){
-          			var eObj = window.event? window.event : e;
-        			mouseX = eObj.clientX;
-        			mouseY = eObj.clientY + document.body.scrollTop;
-    			}
-    			function moveImg(){
-        			var m_x = parseInt(document.getElementById('glass').style.left.replace('px', ''));
-        			var m_y = parseInt(document.getElementById('glass').style.top.replace('px', ''));
-					document.getElementById('glass').style.left = Math.round(m_x + ((mouseX - m_x) / 10))+'px';
-        			document.getElementById('glass').style.top = Math.round(m_y + ((mouseY - m_y) / 10))+'px';
-    			}
-    			document.onmousemove = getMousePosition;
-    			setInterval("moveImg()", 1);
+    		var mouseX = 0;
+    		var mouseY = 0;
+    		function getMousePosition(e){
+          		var eObj = window.event? window.event : e;
+        		mouseX = eObj.clientX;
+        		mouseY = eObj.clientY + document.body.scrollTop;
+    		}
+    		function moveImg(){
+        		var m_x = parseInt(document.getElementById('glass').style.left.replace('px', ''));
+        		var m_y = parseInt(document.getElementById('glass').style.top.replace('px', ''));
+				document.getElementById('glass').style.left = Math.round(m_x + ((mouseX - m_x) / 10))+'px';
+        		document.getElementById('glass').style.top = Math.round(m_y + ((mouseY - m_y) / 10))+'px';
+    		}
+    		document.onmousemove = getMousePosition;
+    		setInterval("moveImg()", 1);
 		</script>
 	</head>
 	<body>
@@ -158,24 +192,27 @@
 		<div class="movie_name">
 			<img src="title.png" alt="영화 제목">
 		</div>
+		<div class="movie_name2">
+			<img src="title_black.png" alt="영화 제목">
+		</div>
 		<nav>
 			<a href="ccf_actor page2.html">
-			<img src="menu_01-1.png" alt="배우 페이지 메뉴 변화" class="actor_change">
+				<img src="menu_01-1.png" alt="배우 페이지 메뉴 변화" class="actor_change">
 			</a>
 			<a href="ccf_actor page2.html">
-			<img src="menu_01.png" alt="배우 페이지 메뉴" class="actor">
+				<img src="menu_01.png" alt="배우 페이지 메뉴" class="actor">
 			</a>
 			<a href="ccf_story page2.html">
-			<img src="menu_02-1.png" alt="스토리 페이지 메뉴 변화" class="story_change">
+				<img src="menu_02-1.png" alt="스토리 페이지 메뉴 변화" class="story_change">
 			</a>
 			<a href="ccf_story page2.html">
-			<img src="menu_02.png" alt="스토리 페이지 메뉴" class="story">
+				<img src="menu_02.png" alt="스토리 페이지 메뉴" class="story">
 			</a>
 			<a href="ccf_teaser page2.html">
-			<img src="menu_03-1.png" alt="티저 페이지 메뉴 변화" class="teaser_change">
+				<img src="menu_03-1.png" alt="티저 페이지 메뉴 변화" class="teaser_change">
 			</a>
 			<a href="ccf_teaser page2.html">
-			<img src="menu_03.png" alt="티저 페이지 메뉴" class="teaser">
+				<img src="menu_03.png" alt="티저 페이지 메뉴" class="teaser">
 			</a>
 		</nav>
 		<img id="glass" style="position:absolute; left:0; top:0;" src="mouse_image.png">

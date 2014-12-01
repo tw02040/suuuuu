@@ -91,6 +91,23 @@
 					margin: 0 30px 0 0;
 				}
     		}
+    		@media print {
+	        	.candy {
+            		display:none;
+        		}
+        		#glass {
+        			display:none;
+        		}
+        		h3 {
+              		font-size : 15px;
+              		color : black;
+              		line-height: 25px;
+              		font-weight: lighter;
+        		}
+        		#menu_home, #menu_1, #menu_3 {
+        			display:none;
+        		}
+    		}
 		</style>
 		<script type="text/javascript">
 			window.onload = function(){
@@ -128,10 +145,10 @@
 	<body>
 		<div class="all">
 			<nav>
-				<a href="index.html"><img src="home.png" alt="홈"></a>
-				<a href="ccf_actor page2.html"><img src="menu_01-1_2.png" alt="메뉴01"></a>
-				<a href="ccf_story page2.html"><img src="menu_02-1_2.png" alt="메뉴02"></a>
-				<a href="ccf_teaser page2.html"><img src="menu_03-1_2.png" alt="메뉴03"></a>
+				<a href="index.html"><img id="menu_home" src="home.png" alt="홈"></a>
+				<a href="ccf_actor page2.html"><img id="menu_1"src="menu_01-1_2.png" alt="메뉴01"></a>
+				<a href="ccf_story page2.html"><img id="menu_2"src="menu_02-1_2.png" alt="메뉴02"></a>
+				<a href="ccf_teaser page2.html"><img id="menu_3"src="menu_03-1_2.png" alt="메뉴03"></a>
 			</nav>
 			<div class="poor">
 				<img src="gananhan.png" alt="gananhan">
